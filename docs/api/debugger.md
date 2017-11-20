@@ -4,7 +4,8 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding][rdp] available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome Developer Tools has a [special binding][rdp] available at JavaScript
+runtime that allows interacting with pages and instrumenting them.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -49,11 +50,13 @@ Detaches the debugger from the `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
+* `method` String - Method name, should be one of the methods defined by the
+  remote debugging protocol.
 * `commandParams` Object (optional) - JSON object with request parameters.
 * `callback` Function (optional) - Response
   * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `result` Any - Response defined by the 'returns' attribute of the command
+    description in the remote debugging protocol.
 
 Send given command to the debugging target.
 
@@ -64,13 +67,15 @@ Send given command to the debugging target.
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Emitted when debugging session is terminated. This happens either when
+`webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Event: 'message'
 
 * `event` Event
 * `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` Object - Event parameters defined by the 'parameters' attribute in
+  the remote debugging protocol.
 
 Emitted whenever debugging target issues instrumentation event.
 

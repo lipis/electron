@@ -1,6 +1,7 @@
 # Upgrading Chromium Workflow
 
-This document is meant to serve as an overview of what steps are needed on each Chromium upgrade in Electron.
+This document is meant to serve as an overview of what steps are needed on each
+Chromium upgrade in Electron.
 
 ## Update libchromiumcontent (a.k.a. libcc)
 
@@ -42,8 +43,12 @@ cd -
 ## Update Electron
 
 * Set `vendor/libchromiumcontent` revision to a version with the new Chromium.
-  * It will be great if GH builds for this libcc version are already green and its archives are already available. Otherwise everyone would need to build libcc locally in order to try build a new Electron.
-* Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using. You can find it in file `src/tools/clang/scripts/update.py` in updated `electron/libchromiumcontent` repo.
+  * It will be great if GH builds for this libcc version are already green and
+    its archives are already available. Otherwise everyone would need to build
+    libcc locally in order to try build a new Electron.
+* Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium
+  is using. You can find it in file `src/tools/clang/scripts/update.py` in
+  updated `electron/libchromiumcontent` repo.
 * Run `script/bootstrap.py`.
 * Upgrade Node.js if you are willing to. See the notes below.
 * Fix compilation.
@@ -53,8 +58,12 @@ cd -
 
 ## Upgrade Node.js
 
-* Upgrade `vendor/node` to the Node release that corresponds to the v8 version being used in the new Chromium release. See the v8 versions in Node on https://nodejs.org/en/download/releases for more details.
-  * You can find v8 version Chromium is using on [OmahaProxy](http://omahaproxy.appspot.com). If it's not available check `v8/include/v8-version.h` in the Chromium checkout.
+* Upgrade `vendor/node` to the Node release that corresponds to the v8 version
+  being used in the new Chromium release. See the v8 versions in Node on
+  https://nodejs.org/en/download/releases for more details.
+  * You can find v8 version Chromium is using on
+    [OmahaProxy](http://omahaproxy.appspot.com). If it's not available check
+    `v8/include/v8-version.h` in the Chromium checkout.
 
 ## Troubleshooting
 
@@ -62,9 +71,15 @@ cd -
 
 ## Verify ffmpeg Support
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron ships with a version of `ffmpeg` that includes proprietary codecs by
+default. A version without these codecs is built and distributed with each
+release as well. Each Chrome upgrade should verify that switching this version
+is still supported.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+You can verify Electron's support for multiple `ffmpeg` builds by loading the
+following page. It should work with the default `ffmpeg` library distributed
+with Electron and not work with the `ffmpeg` library built without proprietary
+codecs.
 
 ```html
 <!DOCTYPE html>

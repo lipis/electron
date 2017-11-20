@@ -2,11 +2,17 @@
 
 From [ChromeDriver - WebDriver for Chrome][chrome-driver]:
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver is an open source tool for automated testing of web apps across many
+> browsers. It provides capabilities for navigating to web pages, user input,
+> JavaScript execution, and more. ChromeDriver is a standalone server which
+> implements WebDriver's wire protocol for Chromium. It is being developed by
+> members of the Chromium and WebDriver teams.
 
 ## Setting up Spectron
 
-[Spectron][spectron] is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron][spectron] is the officially supported ChromeDriver testing framework
+for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has
+helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```bash
 $ npm install --save-dev spectron
@@ -51,7 +57,8 @@ app
 
 ## Setting up with WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a
+Node package for testing with web driver, we will use it as an example.
 
 ### 1. Start ChromeDriver
 
@@ -74,7 +81,9 @@ $ npm install selenium-webdriver
 
 ### 3. Connect to ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+The usage of `selenium-webdriver` with Electron is basically the same with
+upstream, except that you have to manually specify how to connect chrome driver
+and where to find Electron's binary:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
@@ -105,7 +114,8 @@ driver.quit()
 
 ## Setting up with WebdriverIO
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web
+driver.
 
 ### 1. Start ChromeDriver
 
@@ -160,9 +170,13 @@ client
 
 ## Workflow
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+To test your application without rebuilding Electron, simply
+[place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)
+your app source into Electron's resource directory.
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Alternatively, pass an argument to run with your electron binary that points to
+your app's folder. This eliminates the need to copy-paste your app into
+Electron's resource directory.
 
 [chrome-driver]: https://sites.google.com/a/chromium.org/chromedriver/
 [spectron]: https://electron.atom.io/spectron

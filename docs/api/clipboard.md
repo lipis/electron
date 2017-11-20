@@ -2,7 +2,8 @@
 
 > Perform copy and paste operations on the system clipboard.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process),
+[Renderer](../glossary.md#renderer-process)
 
 The following example shows how to write a string to the clipboard:
 
@@ -11,7 +12,8 @@ const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+On X Window systems, there is also a selection clipboard. To manipulate it you
+need to pass `selection` to each method:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -84,7 +86,9 @@ Returns `Object`:
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Returns an Object containing `title` and `url` keys representing the bookmark in
+the clipboard. The `title` and `url` values will be empty strings when the
+bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` _macOS_ _Windows_
 
@@ -94,7 +98,9 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you
+can use `clipboard.write` to write both a bookmark and fallback text to the
+clipboard.
 
 ```js
 clipboard.write({
@@ -105,13 +111,16 @@ clipboard.write({
 
 ### `clipboard.readFindText()` _macOS_
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Returns `String` - The text on the find pasteboard. This method uses synchronous
+IPC when called from the renderer process. The cached value is reread from the
+find pasteboard whenever the application is activated.
 
 ### `clipboard.writeFindText(text)` _macOS_
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+Writes the `text` into the find pasteboard as plain text. This method uses
+synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([type])`
 

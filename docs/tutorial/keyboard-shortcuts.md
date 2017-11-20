@@ -4,7 +4,9 @@
 
 ## Local Shortcuts
 
-You can use the [Menu] module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem].
+You can use the [Menu] module to configure keyboard shortcuts that will be
+triggered only when the app is focused. To do so, specify an [`accelerator`]
+property when creating a [MenuItem].
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -21,7 +23,8 @@ menu.append(
 )
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+It's easy to configure different key combinations based on the user's operating
+system.
 
 ```js
 {
@@ -31,7 +34,8 @@ It's easy to configure different key combinations based on the user's operating 
 
 ## Global Shortcuts
 
-You can use the [globalShortcut] module to detect keyboard events even when the application does not have keyboard focus.
+You can use the [globalShortcut] module to detect keyboard events even when the
+application does not have keyboard focus.
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -45,17 +49,24 @@ app.on('ready', () => {
 
 ## Shortcuts within a BrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow], you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+If you want to handle keyboard shortcuts for a [BrowserWindow], you can use the
+`keyup` and `keydown` event listeners on the window object inside the renderer
+process.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Note the third parameter `true` which means the listener will always receive key
+presses before other listeners so they can't have `stopPropagation()` called on
+them.
 
-The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+The [`before-input-event`](web-contents.md#event-before-input-event) event is
+emitted before dispatching `keydown` and `keyup` events in the page. It can be
+used to catch and handle custom shortcuts that are not visible in the menu.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap].
+If you don't want to do manual shortcut parsing there are libraries that do
+advanced key detection such as [mousetrap].
 
 ```js
 Mousetrap.bind('4', () => {

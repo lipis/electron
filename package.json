@@ -37,7 +37,7 @@
   "prettier": {
     "bracketSpacing": false,
     "printWidth": 80,
-    "proseWrap": false,
+    "proseWrap": true,
     "semi": false,
     "singleQuote": true
   },

@@ -20,7 +20,8 @@ The `webFrame` module has the following methods:
 
 * `factor` Number - Zoom factor.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Changes the zoom factor to the specified factor. Zoom factor is zoom percent
+divided by 100, so 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -30,7 +31,9 @@ Returns `Number` - The current zoom factor.
 
 * `level` Number - Zoom level
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Changes the zoom level to the specified level. The original size is 0 and each
+increment above or below represents zooming 20% larger or smaller to default
+limits of 300% and 50% of original size, respectively.
 
 ### `webFrame.getZoomLevel()`
 
@@ -41,7 +44,8 @@ Returns `Number` - The current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom
+level limits. This method will be removed in Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -67,7 +71,8 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 Sets a provider for spell checking in input fields and text areas.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+The `provider` must be an object that has a `spellCheck` method that returns
+whether the word passed is correctly spelled.
 
 An example of using [node-spellchecker][spellchecker] as provider:
 
@@ -86,13 +91,16 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 Registers the `scheme` as secure scheme.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Secure schemes do not trigger mixed content warnings. For example, `https` and
+`data` are secure schemes because they cannot be corrupted by active network
+attackers.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Resources will be loaded from this `scheme` regardless of the current page's
+Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
@@ -104,9 +112,12 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
   * `supportFetchAPI` Boolean - (optional) Default true.
   * `corsEnabled` Boolean - (optional) Default true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Registers the `scheme` as secure, bypasses content security policy for
+resources, allows registering ServiceWorker and supports fetch API.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Specify an option with the value of `false` to omit it from the registration. An
+example of registering a privileged scheme, without bypassing Content Security
+Policy:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -126,11 +137,14 @@ Inserts `text` to the focused element.
 * `callback` Function (optional) - Called after script has been executed.
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Returns `Promise` - A promise that resolves with the result of the executed code
+or is rejected if the result of the code is a rejected promise.
 
 Evaluates `code` in page.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+In the browser window some HTML APIs like `requestFullScreen` can only be
+invoked by a gesture from the user. Setting `userGesture` to `true` will remove
+this limitation.
 
 ### `webFrame.getResourceUsage()`
 
@@ -142,7 +156,8 @@ Returns `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Returns an object describing usage information of Blink's internal memory
+caches.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -167,8 +182,13 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Attempts to free memory that is no longer being used (like images from a
+previous navigation).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Note that blindly calling this method probably makes Electron slower since it
+will have to refill these emptied caches, you should only call it if an event in
+your app has occurred that makes you think your page is actually using less
+memory (i.e. you have navigated from a super heavy page to a mostly empty one,
+and intend to stay there).
 
 [spellchecker]: https://github.com/atom/node-spellchecker

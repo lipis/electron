@@ -2,13 +2,17 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process),
+[Renderer](../glossary.md#renderer-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+You cannot require or use this module until the `ready` event of the `app`
+module is emitted.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` is an
+[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM
+property, so writing `let {screen} = require('electron')` will not work.
 
 An example of creating a window that fills the whole screen:
 
@@ -79,7 +83,9 @@ Returns:
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Emitted when one or more metrics change in a `display`. The `changedMetrics` is
+an array of strings that describe the changes. Possible changes are `bounds`,
+`workArea`, `scaleFactor` and `rotation`.
 
 ## Methods
 
@@ -101,16 +107,19 @@ Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Returns [`Display[]`](structures/display.md) - An array of displays that are
+currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Returns [`Display`](structures/display.md) - The display nearest the specified
+point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Returns [`Display`](structures/display.md) - The display that most closely
+intersects the provided bounds.
